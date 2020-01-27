@@ -1,0 +1,51 @@
+package Ogreniyorum;
+
+public class Araba {
+
+	//public ve private farklari
+	
+	// PUBLIC //
+	/* Public: Diger java dosyalarindan erisimi izni var.*/
+	
+	// PRIVATE //
+	/* Private: Diger java dosyalarinda erisim yok.*/
+	
+	
+	public String renk;
+	public int kapilar;
+	public int tekerlekler;
+	public String motor;
+	public String model;
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+package Ogreniyorum;
+
+import java.util.Scanner;
+
+public class Test {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		// objeler new ile olusturuluyor
+		
+		Araba araba1 = new Araba();
+		araba1.renk ="Rojo" ;
+		araba1.kapilar = 2;
+		araba1.model = "Citroen";
+		araba1.motor = "Reno";
+		araba1.tekerlekler = 4;
+		
+		
+	
+		System.out.println("Araç Renk: "+ araba1.renk);
+		System.out.println("Araç Kapilar: "+ araba1.kapilar);
+		System.out.println("Araç Model: "+ araba1.model);
+		System.out.println("Araç motor: "+ araba1.motor);
+		System.out.println("Araç tekerlekler: "+ araba1.tekerlekler);
+	}
+
+}
+
+
