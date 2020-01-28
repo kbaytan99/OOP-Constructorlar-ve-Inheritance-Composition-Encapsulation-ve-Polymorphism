@@ -1,0 +1,114 @@
+package Banka;
+
+public class Account {
+	private String hesapNo;
+	private double bakiye;
+	private String isim;
+	private String telefonNo;
+	private String email;
+	
+	//Constructor, classla ayni olmali yoksa constructor olaz
+	public Account() {
+		System.out.println("Benim Construcorum");
+		
+	}
+	//Constructor, java otomatik constructor yazar ama onun yerine sen yazmak istersen boyle yapiliyor
+	// 1 den fazla constructor yazilir ama bu overloading olur
+	public Account(String hesapNo, double bakiye, String isim, String telefonNo, String email) {
+	 this.hesapNo = hesapNo;
+	 this.bakiye = bakiye;
+	 this.isim = isim;
+	 this.telefonNo = telefonNo;
+	 this.email = email;
+		
+	}
+	
+	public void paraYatir(double miktar) {
+		
+		
+		bakiye += miktar;
+		System.out.println("Yeni bakiye = " + bakiye);
+	}
+	
+	public void paraCekme (double miktar) {
+		
+		bakiye -= miktar;
+		if(miktar > 1500) {
+			System.out.println("1500Tl den fazla cekemezsiniz.");
+		}
+		if(bakiye - miktar < 0) {
+			
+			System.out.println("Yeterli bakiye yok");
+		}
+		else {
+			miktar -= bakiye;
+			System.out.println("Yeni bakiye = "+ bakiye);
+		}
+	}
+	
+	public String getHesapNo() {
+		return hesapNo;
+	}
+
+	public void setHesapNo(String hesapNo) {
+		this.hesapNo = hesapNo;
+	}
+
+	public double getBakiye() {
+		return bakiye;
+	}
+
+	public void setBakiye(double bakiye) {
+		this.bakiye = bakiye;
+	}
+
+	public String getIsim() {
+		return isim;
+	}
+
+	public void setIsim(String isim) {
+		this.isim = isim;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getTelefonNo() {
+		return telefonNo;
+	}
+
+	public void setTelefonNo(String telefonNo) {
+		this.telefonNo = telefonNo;
+	}	
+
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+package Banka;
+
+public class Test {
+
+	public static void main(String[] args) {
+	
+	Account acc1 = new Account("5", 1000,"kaan","692252493","kaan@mail.com");
+	//Constructor tek tek deger verir
+	// java deault constructor olusturur
+	// constructor tek tek yerine topluca yapar
+	acc1.paraYatir(100);
+	
+	
+	Account acc2 = new Account();
+	// bos constructor degerini alicaktir
+	
+	acc1.paraCekme(12300);
+	
+		
+	}
+	
+}
