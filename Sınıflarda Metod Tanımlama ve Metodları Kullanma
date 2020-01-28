@@ -1,0 +1,81 @@
+package Dersler;
+
+public class Araba {
+	
+	private String marka;
+	private String model;
+	private int kilometre;
+	private int kapi;
+ 
+	// ENKAPSULASYON PRIVATE YAPARSAN YAZILIMCININ PRIVATE DEGERINDEKI SEYLERI BASKA CLASSTAN ERISIMINI ENGELLERSIN
+	
+	public String getMarka() {
+		return marka;
+	}
+	public void setMarka(String marka) {
+		this.marka = marka;
+	}
+	public int getKilometre() {
+		return kilometre;
+	}
+	public void setKilometre(int kilometre) {
+		this.kilometre = kilometre;
+	}
+	public int getKapi() {
+		return kapi;
+	}
+	public void setKapi(int kapi) {
+		if(kapi <= 0) {
+			System.out.println("Kapi Sayisi 0 dan kucuk olamaz !!!");
+		}
+		else if( kapi > 10) {
+			System.out.println("Naptin yegenim yaw.");
+		}
+		else {
+			this.kapi = kapi;
+		}
+	}
+
+	
+	
+	// this. objenizi referans gosterir, objelerin ismi ayniysa.
+	
+	public void setModel (String model) {
+		this.model = model;
+		
+	}
+	public String getModel () {
+		return this.model;
+	}
+
+	// SETTER GETTERS //
+}
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+package Dersler;
+
+public class MAIN {
+
+	public static void main(String[] args) {
+		
+		Araba araba1 = new Araba();
+		Araba araba2 = new Araba();
+
+		Araba araba3;
+		
+		araba3.setKapi(3); // new kullanmadigin icin olmuyor
+
+		
+		Araba araba4 = null;
+							// NULL KULANIRSAN HATA ALIRSIN CUNKU BOS BIRAKIYORSUN-
+		araba4.setModel("Reno");
+		
+		araba1.setKapi(4);
+		
+	}
+	
+}
+
