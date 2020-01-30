@@ -1,0 +1,89 @@
+package bankaSistemi;
+
+import java.util.Scanner;
+
+public class Hesap {
+	Scanner scanner = new Scanner(System.in);
+	private int para;
+	private String isim;
+	private int pin;
+
+	public Hesap(int para, String isim, int pin) {
+		super();
+		this.para = para;
+		this.isim = isim;
+		this.pin = pin;
+	}
+
+	public float getPara() {
+		return para;
+	}
+
+	public void setPara(int para) {
+		this.para = para;
+	}
+
+	public String getIsim() {
+		return isim;
+	}
+
+	public void setIsim(String isim) {
+		this.isim = isim;
+	}
+
+	public int getpin() {
+		return pin;
+	}
+
+	public void setPin(int pin) {
+		this.pin = pin;
+	}
+	// METHOD //
+
+	public void paracek(int cekilecekpara) { // PARA CEKME
+		if (cekilecekpara > para) {
+			System.out.println(para + "Bu kadar paran var dostum.");
+		} else if (cekilecekpara <= 0) {
+			System.out.println("Minimun 1$ Cekmelisin.");
+		} else {
+			cekilecekpara -= para;
+			System.out.println("Basarili bir sekilde paranizi cektiniz,");
+			System.out.println("Paraniz: " + para);
+		}
+	}
+
+	public void paraekle(int eklenecekpara) { // PARA EKLEME
+		if (eklenecekpara > 1000) {
+			System.out.println("1000$ Fazla Para Ekliyemezsin.");
+		} else if (eklenecekpara <= 0) {
+			System.out.println("Minimun 1$ Yatirmalisin");
+		} else {
+			eklenecekpara += para;
+			System.out.println("Basarili bir sekilde paraniz eklendi.");
+			System.out.println("Eklenen Para: " + para);
+		}
+	}
+
+	public void pindegistir(int pin) { // Pin degistirme
+
+		int pintest = 0;
+
+		System.out.print("Pin giriniz: ");
+		pin = scanner.nextInt();
+		for (pin = this.getpin(); pintest == 3; pintest++)
+
+			if (pin == this.getpin()) {
+				System.out.println("Pin Dogru Girdiniz.");
+				System.out.print("Yeni pini Giriniz: ");
+				int newpin = scanner.nextInt();
+				this.setPin(newpin);
+				System.out.println("Yeni Pin Numaraniz: " + newpin);
+			} 
+			else {
+				System.out.println("Yanlis, pin Giriniz: ");
+			}
+		if (pintest > 3) {
+			System.out.println("Hakkiniz kalmadi.");
+		}
+	}
+}
