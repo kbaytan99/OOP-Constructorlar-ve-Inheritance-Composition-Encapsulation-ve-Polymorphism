@@ -1,0 +1,105 @@
+package Overriding;
+
+public class Calisan {//SuperClass veya BaseClass
+	private String isim;
+	private int maas;
+	private String departman;
+	
+	public Calisan(String isim, int maas, String departman) {
+		super(); //miras aldigim classin constructorunu kullanma
+		this.isim = isim;
+		this.maas = maas;
+		this.departman = departman;
+		//this() //classi simgeler
+	}
+	public void bilgilerigoster() {
+		System.out.println("Isim: " + this.isim);
+		System.out.println("Maas: " + this.maas);
+		System.out.println("Departman: " + this.departman);
+		
+	}
+	public void departmandegistir(String yeniDepartman) {
+		System.out.println("Departman Degistiriliyor. ");
+		this.departman = yeniDepartman;
+		System.out.println("Yeni Departman: " + this.departman);
+		
+	}
+	
+	public String getIsim() {
+		return isim;
+	}
+	public void setIsim(String isim) {
+		this.isim = isim;
+	}
+	public int getMaas() {
+		return maas;
+	}
+	public void setMaas(int maas) {
+		this.maas = maas;
+	}
+	public String getDepartman() {
+		return departman;
+	}
+	public void setDepartman(String departman) {
+		this.departman = departman;
+	}
+	//methods
+	public void calis() {
+		System.out.println("Isçi Çalisiyor.......");
+	
+	}
+}
+**-*-*-*--*-***-*-*-*--*-***-*-*-*--*-***-*-*-*--*-***-*-*-*--*-***-*-*-*--*-***-*-*-*--*-***-*-*-*--*-***-*-*-*--*-***-*-*-*--*-*
+
+package Overriding;
+
+public class Yonetici extends Calisan {//Subclass
+	// EXTENDS
+	//Butun ozeliklerini ve methodlarini miras alir
+	//Error durumunda COnstructor tanimlamani ister.
+	private int rutbe;
+	public Yonetici(String isim, int maas, String departman, int rutbe) {
+		/*this.isim = isim;
+		this.maas = maas;
+		this.deparman = departman;*/
+		super(isim,maas,departman);
+		
+		this.rutbe = rutbe;
+	}
+	public void zam_yap(int zamY) {
+		System.out.println("Çalisanlara " + zamY + " Miktarinda zam yapildi");
+		
+	}
+	public void bilgilerigoster() {
+		
+		/*System.out.println("Isim: " + getIsim());
+		System.out.println("Maas: " + getMaas());
+		System.out.println("Departman: " + getDepartman());
+		System.out.println("Rutbe: " + rutbe);*/
+		super.bilgilerigoster();// hepsini cagirabilir
+	}
+	
+
+}
+**-*-*-*--*-***-*-*-*--*-***-*-*-*--*-***-*-*-*--*-***-*-*-*--*-***-*-*-*--*-***-*-*-*--*-***-*-*-*--*-***-*-*-*--*-***-*-*-*--*-*
+
+package Overriding;
+
+public class Test {
+	
+	//inheritance(Kalitim) - Miras alma anlamina gelir(ornek: Annemizden babamizdan goz rengi alma gibi.)
+
+	public static void main(String[] args) {
+		
+	//Is-A iliskisi Interiantance oldugunu anlarsin
+		Yonetici yonetici = new Yonetici("Kaan", 2000,"IT", 2);
+		Calisan calisan1 = new Calisan ("Yigit", 1500, "IT");
+		yonetici.bilgilerigoster();
+		System.out.println();
+		calisan1.bilgilerigoster();
+		
+		
+	}
+	
+	
+}
