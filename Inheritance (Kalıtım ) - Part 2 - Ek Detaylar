@@ -1,0 +1,127 @@
+package Overriding2;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		
+		Kopek kopek1 = new Kopek("KANGAL", 60, 1, 4, 4);
+		
+		kopek1.tumbilgi();
+		
+		kopek1.kos();
+		System.out.println(kopek1.getKilo());
+		kopek1.yemek_ye("1");
+		
+	}
+	
+}
+
+
+*--**-*--**-*-*--**-*--**-*-*--**-*--**-*-*--**-*--**-*-*--**-*--**-*-*--**-*--**-*-*--**-*--**-*-*--**-*--**-*-*--**-*--**-*-*--**-*--**-*-
+
+package Overriding2;
+
+public class Kopek extends Hayvan{
+	private int dis_sayisi;
+	
+	public Kopek(String isim, int kilo, int boy, int bacak_sayisi, int dis_sayisi) {
+		super(isim, kilo, boy, bacak_sayisi);
+		this.dis_sayisi = dis_sayisi;
+		}
+	
+	//METHOD
+	public void kos() {
+		super.harekete_gec();
+	}
+	public void yemekye(String sayi) {
+		super.yemek_ye(sayi);
+		
+	}
+	public void tumbilgi() {
+		System.out.println("PASAPORT");
+		System.out.println("HAYVAN ISIM: " + getIsim());
+		System.out.println("HAYVAN KILO: " + getKilo());
+		System.out.println("HAYVAN BOY: "  + getBoy() + " Metre");
+		System.out.println("HAYVAN BCK: "  + getBacak_sayisi());
+		System.out.println("HAYVAN DIS: "  + getDis_sayisi());
+	}
+	
+	
+	
+	
+	//GETTER SETTER
+	public int getDis_sayisi() {
+		return dis_sayisi;
+	}
+
+	public void setDis_sayisi(int dis_sayisi) {
+		this.dis_sayisi = dis_sayisi;
+	}
+
+}
+*--**-*--**-*-*--**-*--**-*-*--**-*--**-*-*--**-*--**-*-*--**-*--**-*-*--**-*--**-*-*--**-*--**-*-*--**-*--**-*-*--**-*--**-*-*--**-*--**-*-
+
+package Overriding2;
+
+import java.util.Scanner;
+
+public class Hayvan {
+	private String isim;
+	private int kilo;
+	private int boy;
+	private int bacak_sayisi;
+	
+	public Hayvan(String isim, int kilo, int boy, int bacak_sayisi) {
+		this.isim = isim;
+		this.kilo = kilo;
+		this.boy = boy;
+		this.bacak_sayisi = bacak_sayisi;
+		
+	}
+	public void yemek_ye(String sayi) {
+		System.out.println(isim + " Suanda yemek yigiyor.");
+		if(sayi.equals("1")) {
+			kilo++;
+			System.out.println("Kopek 1 Kilo yedi.");
+		}
+		else if (sayi.equals("2")) {
+			kilo += 2;
+			System.out.println("Kopek 2 Kilo Yedi.");
+		}
+		else {
+			System.out.println("Çok mama yedi");
+		}
+		
+	}
+	public void harekete_gec() {
+		System.out.println(isim + " Suanda yuruyuse çikti.");
+		kilo--;
+	}
+	public String getIsim() {
+		return isim;
+	}
+	public void setIsim(String isim) {
+		this.isim = isim;
+	}
+	public int getKilo() {
+		return kilo;
+	}
+	public void setKilo(int kilo) {
+		this.kilo = kilo;
+	}
+	public int getBoy() {
+		return boy;
+	}
+	public void setBoy(int boy) {
+		this.boy = boy;
+	}
+	public int getBacak_sayisi() {
+		return bacak_sayisi;
+	}
+	public void setBacak_sayisi(int bacak_sayisi) {
+		this.bacak_sayisi = bacak_sayisi;
+	}
+	
+	
+	
+}
