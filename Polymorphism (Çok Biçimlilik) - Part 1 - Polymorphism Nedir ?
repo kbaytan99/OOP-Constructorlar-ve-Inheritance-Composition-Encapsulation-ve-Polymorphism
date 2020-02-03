@@ -1,0 +1,79 @@
+package PolyMorphism;
+
+import Overriding2.Kopek;
+
+class Hayvan {
+	private String isim;
+
+	public Hayvan(String isim) {
+		this.isim = isim;
+	}
+
+	public String getIsim() {
+		return isim;
+	}
+
+	public void setIsim(String isim) {
+		this.isim = isim;
+	}
+
+	public String konus() {
+		return "Hayvan Konusuyor----";
+	}
+
+}
+
+class kedi extends Hayvan {
+
+	public kedi(String isim) {
+		super(isim);
+	}
+
+	@Override
+	public String konus() {
+		return super.getIsim() + " Miyavliyor....";
+	}
+}
+
+class kopek extends Hayvan {
+	public kopek(String isim) {
+	super(isim);
+}
+	@Override
+	public String konus() {
+		return super.getIsim() + " Havliyor.....";
+		}
+	
+}
+
+class At extends Hayvan {
+
+	public At(String isim) {
+		super(isim);
+	}
+
+	@Override
+	public String konus() {
+		return super.getIsim() + " Kisniyor.....";
+	}
+
+}
+
+public class Main {
+	public static void konustur(Hayvan hayvan) {
+		System.out.println(hayvan.konus());
+	}
+	public static void main(String[] args) {
+/*
+		Hayvan hayvan = new kedi("Karpuz");
+		//Polymoprihsim için ana Class olmali subclasslar olur
+		Hayvan hayvan2 = new At("Cetah");
+		System.out.println(hayvan.konus());
+		System.out.println(hayvan2.konus());//MUTLAHA INHERATANCE OLMALI
+*/
+			konustur(new kedi("Tekir"));
+			konustur(new kopek("Salan"));
+			konustur(new At("Yigit"));
+	}
+
+}
