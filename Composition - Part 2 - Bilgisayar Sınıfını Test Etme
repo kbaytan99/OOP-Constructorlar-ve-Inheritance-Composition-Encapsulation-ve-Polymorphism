@@ -1,0 +1,224 @@
+package Composition;
+
+public class Test {
+		public static void main(String[] args) {
+			
+			Resolution resolution = new Resolution(1920, 1080);
+			Monitor monitor = new Monitor("Vs27A", "Asus","26,5", resolution);
+			Kasa kasa = new Kasa(4, "Logi", "Demir");
+			Anakart anakart = new Anakart("Asus", "Asus",4,"Windows");
+			Bilgisayar pc = new Bilgisayar(anakart, monitor, kasa);
+			
+			pc.getKasa().bilgisayariac();
+			pc.getMonitor().monitorukapat();
+			pc.getAnakart().isletim_sistemi_yukle("Windows 10");
+		}
+}
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+package Composition;
+public class Anakart {
+	private String model;
+	private String uretici;
+	private int yuvasayisi;
+	private String isletim_Sistemi;
+	public Anakart(String model, String uretici, int yuvasayisi, String isletim_Sistemi) {
+		super();
+		this.model = model;
+		this.uretici = uretici;
+		this.yuvasayisi = yuvasayisi;
+		this.isletim_Sistemi = isletim_Sistemi;
+	}
+	
+	
+	public void isletim_sistemi_yukle(String isletim_sistemi) {
+		this.isletim_Sistemi = isletim_sistemi;
+		
+		System.out.println("Isletim sistemi yuklendi: " + isletim_sistemi);
+	}
+	public String getModel() {
+		return model;
+	}
+	public void setModel(String model) {
+		this.model = model;
+	}
+	public String getUretici() {
+		return uretici;
+	}
+	public void setUretici(String uretici) {
+		this.uretici = uretici;
+	}
+	public int getYuvasayisi() {
+		return yuvasayisi;
+	}
+	public void setYuvasayisi(int yuvasayisi) {
+		this.yuvasayisi = yuvasayisi;
+	}
+	public String getIsletim_Sistemi() {
+		return isletim_Sistemi;
+	}
+	public void setIsletim_Sistemi(String isletim_Sistemi) {
+		this.isletim_Sistemi = isletim_Sistemi;
+	}
+		
+		
+}
+
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+package Composition;
+public class Kasa {
+
+	private int fan;
+	private String uretici;
+	private String malzeme;
+	public Kasa(int fan, String uretici, String malzeme) {
+		super();
+		this.fan = fan;
+		this.uretici = uretici;
+		this.malzeme = malzeme;
+	}
+	
+	public void bilgisayariac() {
+		System.out.println("Bilgisayar Açiliyor.");
+	}
+	public int getFan() {
+		return fan;
+	}
+	public void setFan(int fan) {
+		this.fan = fan;
+	}
+	public String getUretici() {
+		return uretici;
+	}
+	public void setUretici(String uretici) {
+		this.uretici = uretici;
+	}
+	public String getMalzeme() {
+		return malzeme;
+	}
+	public void setMalzeme(String malzeme) {
+		this.malzeme = malzeme;
+	}
+	
+	
+}
+
+
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
+package Composition;
+
+public class Resolution {
+
+	private int en;
+	private int boy;
+	public Resolution(int en, int boy) {
+		super();
+		this.en = en;
+		this.boy = boy;
+	}
+	
+	
+	public int getEn() {
+		return en;
+	}
+	public void setEn(int en) {
+		this.en = en;
+	}
+	public int getBoy() {
+		return boy;
+	}
+	public void setBoy(int boy) {
+		this.boy = boy;
+	}
+}
+
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
+package Composition;
+
+public class Monitor {
+
+	//COMPOSITION
+	private String model;
+	private String uretici;
+	private String boyut;
+	private Resolution resolution;//COMPOSITION
+	public Monitor(String model, String uretici, String boyut, Resolution resolution) {
+		super();
+		this.model = model;
+		this.uretici = uretici;
+		this.boyut = boyut;
+		this.resolution = resolution;
+	}
+	public void monitorukapat() {
+		System.out.println("Monitor Kapatiliyor......");
+		
+	}
+	public String getModel() {
+		return model;
+	}
+	public void setModel(String model) {
+		this.model = model;
+	}
+	public String getUretici() {
+		return uretici;
+	}
+	public void setUretici(String uretici) {
+		this.uretici = uretici;
+	}
+	public String getBoyut() {
+		return boyut;
+	}
+	public void setBoyut(String boyut) {
+		this.boyut = boyut;
+	}
+	public Resolution getResolution() {
+		return resolution;
+	}
+	public void setResolution(Resolution resolution) {
+		this.resolution = resolution;
+	}
+}
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
+package Composition;
+
+public class Bilgisayar {
+	
+	
+	//COMPOSITION
+	private Anakart anakart;
+	private Monitor monitor;
+	private Kasa kasa;
+	public Bilgisayar(Anakart anakart, Monitor monitor, Kasa kasa) {
+		super();
+		this.anakart = anakart;
+		this.monitor = monitor;
+		this.kasa = kasa;
+	}
+	
+	public Anakart getAnakart() {
+		return anakart;
+	}
+	public void setAnakart(Anakart anakart) {
+		this.anakart = anakart;
+	}
+	public Monitor getMonitor() {
+		return monitor;
+	}
+	public void setMonitor(Monitor monitor) {
+		this.monitor = monitor;
+	}
+	public Kasa getKasa() {
+		return kasa;
+	}
+	public void setKasa(Kasa kasa) {
+		this.kasa = kasa;
+	}
+}
+
