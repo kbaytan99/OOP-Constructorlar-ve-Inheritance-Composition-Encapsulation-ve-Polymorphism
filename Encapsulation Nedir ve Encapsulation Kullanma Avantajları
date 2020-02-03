@@ -1,0 +1,81 @@
+package Encapsulation;
+public class Main {
+
+	public static void main(String[] args) {
+
+	Abone abone = new Abone();
+	Gabone abone1 = new Gabone("Kaan", 0, "Palma");
+	
+	System.out.println(abone1.getBakiye());
+	System.out.println(abone1.getIsim());
+	System.out.println(abone1.getSehir());
+	
+	}
+}
+
+*-/*/*-/*-//-/*-*----**--/-*/-/-*/*-/*-/*-/*-/*-/*-/*-/*-/*-/*-/*-/*-/*-/*-/*-/*-//*-/*-//*-/*/
+
+package Encapsulation;
+//D.GAZ ABONESI
+public class Abone {
+	
+	public String isim;
+	public int bakiye;
+	
+	public String sehir;
+	
+	public void dogalgazkullan(int miktar) {
+		if((this.bakiye = miktar) < 0) {
+			System.out.println("BAKIYENIZ YOK...");
+		}
+		else {
+			this.bakiye -= miktar;
+			
+			if(this.bakiye <= 0) {
+				System.out.println("Bakiyeniz bitti..");
+			}
+			else {
+				System.out.println("Yeni bakiye = " + bakiye);
+			}
+			
+		}
+		
+	}
+	public void bakiyeogren() {
+
+		System.out.println("Bakiye = " + bakiye);
+	}
+	
+}
+
+*-/*/*-/*-//-/*-*----**--/-*/-/-*/*-/*-/*-/*-/*-/*-/*-/*-/*-/*-/*-/*-/*-/*-/*-/*-//*-/*-//*-/*/
+package Encapsulation;
+
+public class Gabone {
+	private String isim = "Null";
+	private int bakiye = 0;
+	private String sehir = "Null";
+	public Gabone(String isim, int bakiye, String sehir) {
+		this.isim = isim;
+		this.bakiye = bakiye;
+		this.sehir = sehir;
+	}
+	public String getIsim() {
+		return isim;
+	}
+	public void setIsim(String isim) {
+		this.isim = isim;
+	}
+	public int getBakiye() {
+		return bakiye;
+	}
+	public void setBakiye(int bakiye) {
+		this.bakiye = bakiye;
+	}
+	public String getSehir() {
+		return sehir;
+	}
+	public void setSehir(String sehir) {
+		this.sehir = sehir;
+	}
+}
