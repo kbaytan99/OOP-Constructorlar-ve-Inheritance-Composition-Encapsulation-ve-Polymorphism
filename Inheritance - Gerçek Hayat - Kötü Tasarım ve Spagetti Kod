@@ -1,0 +1,120 @@
+package Spagetti;
+public class InheritanceBad {
+	public static void main(String[] args) {
+		System.out.println("Inheritance Bad Design");
+		ProductManager productmanager = new ProductManager();
+		productmanager.add(new Product(1, "Su", 1 ),1);
+
+		
+	}
+
+}
+/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/
+package Spagetti;
+
+public class Product {
+	private int id;
+	private String name;
+	private int price;
+	public Product(int id, String name, int price) {
+		this.id = id;
+		this.name = name;
+		this.price = price;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	
+}
+
+/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/
+package Spagetti;
+
+public class ProductManager {
+	public void add(Product product, int databaseType){
+		if (databaseType == 1) {
+			MySqlDao mysql = new MySqlDao("Mysql String");
+			mysql.add(product);
+		}
+		else if (databaseType == 2) {
+			//ORACLE
+			
+			OracleProductDao oracleProductDao = new OracleProductDao("Oracle String");
+			oracleProductDao.add(product);
+			
+		}
+	//IS KATMANI //MANAGER CLASs
+		System.out.println("Urun Is Katmani, Islemleri");
+		System.out.println("Urun ismi: " + product.getName());
+		System.out.println("URUN FIYAT: " + product.getPrice());
+		
+		
+	}
+	
+	
+}
+/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/
+package Spagetti;
+public class OracleProductDao {
+
+	private String connetcionString;
+
+	public OracleProductDao(String connetcionString) {
+		this.connetcionString = connetcionString;
+	}
+	
+	public void add(Product product){
+		System.out.println("Oracle Database: " + product.getName() );
+		
+		
+		
+	}
+	
+	
+}
+/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/
+
+package Spagetti;
+public class MySqlDao {
+	private String connetcionString;
+
+	public MySqlDao(String connetcionString) {
+		this.connetcionString = connetcionString;
+	}
+	
+	public void add(Product product){
+		System.out.println("MySql Database: " + product.getName() );
+		
+		
+		
+	}
+	
+	
+	
+}
+/**************************************************/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/
+package Spagetti;
+public class Main2 {
+public static void main(String[] args) {
+	ProductManager productmanager = new ProductManager();
+	productmanager.add(new Product(1, "Su", 1 ),2);
+}
+	
+}
+
+
